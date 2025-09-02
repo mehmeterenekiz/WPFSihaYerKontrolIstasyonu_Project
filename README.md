@@ -1,6 +1,6 @@
-![FlightInformationPage](Uygulama Goruntuleri/FlightInformationPage.png)
+![FlightInformationPage](UygulamaGoruntuleri/FlightInformationPage.png)
 
-![MapPanelPage](Uygulama Goruntuleri/MapPanelPage.png)
+![MapPanelPage](UygulamaGoruntuleri/MapPanelPage.png)
 
-![TaskPlanAddingWindow](Uygulama Goruntuleri/TaskPlanAddingWindow.png)
+![TaskPlanAddingWindow](UygulamaGoruntuleri/TaskPlanAddingWindow.png)
 
