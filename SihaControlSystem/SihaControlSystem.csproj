@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\icons\destination.png" />
+    <None Remove="images\icons\destinationnew.png" />
+    <None Remove="images\icons\engine.png" />
+    <None Remove="images\icons\fuel.png" />
+    <None Remove="images\icons\map.png" />
+    <None Remove="images\icons\mapicons\mapsiha.png" />
+    <None Remove="images\icons\minimizemaximize.png" />
+    <None Remove="images\icons\minimizemaximizewhite.png" />
+    <None Remove="images\icons\new.png" />
+    <None Remove="images\icons\remote-sensing-satellite %281%29.png" />
+    <None Remove="images\icons\system-integration.png" />
+    <None Remove="images\icons\turbine.png" />
+    <None Remove="images\windows\sagust.png" />
+    <None Remove="images\windows\siha.png" />
+    <None Remove="images\windows\sihasolust.png" />
+    <None Remove="images\windows\uydu.png" />
+    <None Remove="images\windows\uyduss.png" />
+    <None Remove="images\windows\uydusssss.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GMap.NET.Presentation" Version="1.7.5" />
+    <PackageReference Include="GMap.NET.WindowsPresentation" Version="1.9.6" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\icons\destination.png" />
+    <Resource Include="images\icons\destinationnew.png" />
+    <Resource Include="images\icons\engine.png" />
+    <Resource Include="images\icons\fuel.png" />
+    <Resource Include="images\icons\map.png" />
+    <Resource Include="images\icons\mapicons\mapsiha.png" />
+    <Resource Include="images\icons\mapicons\mapsiha1.png" />
+    <Resource Include="images\icons\minimizemaximize.png" />
+    <Resource Include="images\icons\minimizemaximizewhite.png" />
+    <Resource Include="images\icons\new.png" />
+    <Resource Include="images\icons\hamburgermenu.png" />
+    <Resource Include="images\icons\remote-sensing-satellite (1).png" />
+    <Resource Include="images\icons\system-integration.png" />
+    <Resource Include="images\icons\turbine.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\windows\sagust.png" />
+    <Resource Include="images\windows\siha.png" />
+    <Resource Include="images\windows\sihasolust.png" />
+    <Resource Include="images\windows\uydu.png" />
+    <Resource Include="images\windows\uyduss.png" />
+    <Resource Include="images\windows\uydusssss.png" />
+  </ItemGroup>
+
+</Project>

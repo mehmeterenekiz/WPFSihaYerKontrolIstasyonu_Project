@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="UControls\ucFlightInformations.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UControls\ucHeaderFlightInformations.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UControls\ucHeaderHomePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UControls\ucHeaderTaskPlanning.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UControls\ucHomePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UControls\ucMapPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UControls\ucTaskPlanning.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="winCoordSelection.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="winTaskPlanAdd.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="winTaskPlanEdit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="winTaskPlanEdit2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="winTaskPlanPick.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

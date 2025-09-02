@@ -1,0 +1,252 @@
+﻿<Window x:Class="SihaControlSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SihaControlSystem"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="900" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent" Loaded="Window_Loaded" Icon="/images/icons/turbine.png">
+    <Grid>
+
+        <!--
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.45" ShadowDepth="5" />
+        </Grid.Effect>
+        -->
+        <!-- 2 Satır -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- 2 Sütun -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" x:Name="grd_columnmenu"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Logo ve Buton  -->
+        <Border Background="#134187" Grid.Column="0" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ToggleButton IsChecked="True" x:Name="homepagetoggle" Click="homepagetoggle_Click" Style="{DynamicResource menubutonlarheader}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Border Focusable="True" Grid.Row="0" x:Name="homepage" MouseDown="homepage_MouseDown" Background="Transparent" Width="223">
+                        <DockPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Image Source="/images/icons/engine.png" Height="47" Width="37"></Image>
+                            <Label Content="SİHA Kontrol Sistemi" Foreground="White" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="lbl_logoyazi"/>
+                        </DockPanel>
+                    </Border>
+                </ToggleButton>
+                
+                <Border Grid.Row="1" x:Name="hamburgermenu" MouseDown="hamburgermenu_MouseDown">
+                    <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image x:Name="RotatingImage"
+                               Source="/images/icons/turbine.png"
+                               Width="130" Height="130"
+                               RenderTransformOrigin="0.5,0.5"
+                               MouseEnter="RotatingImage_MouseEnter"
+                               MouseLeave="RotatingImage_MouseLeave">
+                            <Image.RenderTransform>
+                                <RotateTransform x:Name="rotateTransform" />
+                            </Image.RenderTransform>
+                        </Image>
+                    </DockPanel>
+
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#265495"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Butonlar ve Başlıklar -->
+        <Border Background="#134187" Grid.Column="1" Grid.Row="0">
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border Background="White" Grid.Row="0" x:Name="brd_Sagust" MouseDown="brd_Sagust_MouseDown">
+                    <Grid>
+                        <Image Source="/images/icons/hamburgermenu.png" HorizontalAlignment="Left" Width="20" Height="20" Margin="5" Cursor="Hand" MouseDown="hamburgermenu_MouseDown">
+
+                            <Image.RenderTransform>
+                                <ScaleTransform x:Name="scaleTransform" ScaleX="1" ScaleY="1" CenterX="0.5" CenterY="0.5"/>
+                            </Image.RenderTransform>
+
+                            <Image.Triggers>
+                                <!-- Mouse Enter Animasyonu -->
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                     To="1.1" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                     To="1.1" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+
+                                <!-- Mouse Leave Animasyonu -->
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                     To="1.0" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                     To="1.0" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Image.Triggers>
+                        </Image>
+                        
+                        <DockPanel HorizontalAlignment="Right">
+                            <Button Content="__" Style="{DynamicResource minibutonlar}" x:Name="btn_iconstate" Click="btn_iconstate_Click"/>
+                            <Button Style="{DynamicResource minibutonlar}" Width="35" Height="35" x:Name="btn_minmax" Click="btn_minmax_Click">
+                                <Image Width="16" Height="16" Stretch="Uniform">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="/images/icons/minimizemaximize.png" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Source" Value="/images/icons/minimizemaximizewhite.png" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
+                            <Button Content="X" x:Name="btn_close" Click="btn_close_Click" Style="{DynamicResource minibutonlar}"/>
+                        </DockPanel>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1" Background="#134187" Height="135" VerticalAlignment="Bottom">
+                    <!-- 
+                    <Border.Effect>
+                        <DropShadowEffect Direction="220" Opacity="0.25" ShadowDepth="4"/>
+                    </Border.Effect>
+                    -->
+                    <Grid x:Name="content_header">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="340"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel VerticalAlignment="Center" Margin="30,0,0,0" Grid.ColumnSpan="2">
+                            <Label FontSize="16" FontFamily="Times New Roman" Foreground="White">HOŞGELDİNİZ</Label>
+                        </StackPanel>
+
+                        <Border x:Name="content_header_siha" Grid.Column="0" RenderTransformOrigin="0.5,0.5" Margin="165,-3,272,42" Grid.ColumnSpan="3">
+
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="30.714"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+
+                            <Border.Background>
+                                <ImageBrush ImageSource="/images/windows/sihasolust.png"/>
+                            </Border.Background>
+
+                        </Border>
+
+                        <Border Grid.Column="2">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/images/windows/sagust.png"/>
+                            </Border.Background>
+                        </Border>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Butonlar ve Header -->
+        <Border Background="#134187" Grid.Column="0" Grid.Row="1">
+
+            <Grid x:Name="sidebar">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="155"/>
+                </Grid.RowDefinitions>
+
+
+                <StackPanel Grid.Row="0">
+                    <ToggleButton Height="50" Style="{DynamicResource menubutonlar}" x:Name="menubutton_flightinformations" Click="menubutton_flightinformations_Click">
+                        <DockPanel Width="200" Margin="10,0,0,0">
+                            <Image Source="/images/icons/remote-sensing-satellite (1).png" Width="32"/>
+                            <Label Content="Uçuş Bilgileri" Foreground="White" FontSize="16" x:Name="lbl_menu1"/>
+                        </DockPanel>
+                    </ToggleButton>
+                    <ToggleButton Height="50" Style="{DynamicResource menubutonlar}" x:Name="menubutton_mappanel" Click="menubutton_mappanel_Click">
+                        <DockPanel Width="200" Margin="10,0,0,0">
+                            <Image Source="/images/icons/map.png" Width="32"/>
+                            <Label Content="Harita Paneli" Foreground="White" FontSize="16" x:Name="lbl_menu2"/>
+                        </DockPanel>
+                    </ToggleButton>
+                    <ToggleButton Height="50" Style="{DynamicResource menubutonlar}" x:Name="menubutton_taskplanning" Click="menubutton_taskplanning_Click">
+                        <DockPanel Width="200" Margin="10,0,0,0">
+                            <Image Source="/images/icons/destination.png" Width="32"/>
+                            <Label Content="Görev Planlama" Foreground="White" FontSize="16" x:Name="lbl_menu4"/>
+                        </DockPanel>
+                    </ToggleButton>
+                    <ToggleButton Height="50" Style="{DynamicResource menubutonlar}" x:Name="menubutton_systemstate" Click="menubutton_systemstate_Click">
+                        <DockPanel Width="200" Margin="10,0,0,0">
+                            <Image Source="/images/icons/system-integration.png" Width="32"/>
+                            <Label Content="Sistem Durumu" Foreground="White" FontSize="16" x:Name="lbl_menu5"/>
+                        </DockPanel>
+                    </ToggleButton>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1">
+                    <Image Source="/images/windows/siha.png" Height="149" Width="249" Panel.ZIndex="-99" Margin="0,3,0,0" x:Name="menu_bottom_windowimage"/>
+
+                    <Canvas>
+                        <Border Canvas.Left="72" Canvas.Top="-24" CornerRadius="10,10,10,10" Cursor="Hand">
+                            <Label Content="9.0.1" Foreground="White" Width="71" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Padding="3" Margin="0" FontFamily="Times New Roman" x:Name="menu_bottomlbl" />
+
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="#4C265495" />
+
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#CC002C59"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                    </Canvas>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- İçerik -->
+        <Border Grid.Column="1" Grid.Row="1" Background="#FFF7F7F7">
+            <Grid x:Name="content_main">
+                <Label x:Name="content_main_label" Background="White"></Label>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="SihaControlSystem.UControls.ucFlightInformations"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SihaControlSystem.UControls"
+             xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+             mc:Ignorable="d" 
+                         d:DesignHeight="530" d:DesignWidth="680">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sol Panel -->
+        <Border Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="250"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Margin="10">
+                            <TextBlock Text="Komut Paneli" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
+                            <Button Name="btnTakeOff" Content="Take Off" Margin="0,0,0,5" Click="btnTakeOff_Click" Style="{DynamicResource ucButtons}"/>
+                            <Button Name="btnLand" Content="Land" Margin="0,0,0,5" Click="btnLand_Click" Style="{DynamicResource ucButtons}"/>
+                            <Button Name="btnReturnHome" Content="Return to Home" Margin="0,0,0,20" Click="btnReturnHome_Click" Style="{DynamicResource ucButtons}"/>
+
+                            <TextBlock Text="Telemetri Verileri" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                            <TextBlock Name="txtTelemetry" FontFamily="Consolas" FontSize="14"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Margin="0">
+                            <Button Content="Görev Planı Seç" Margin="25,5,25,5" Name="btnSelectPlan" Click="btnSelectPlan_Click" Style="{DynamicResource ucButtons}"/>
+                            <TextBlock x:Name="taskinfos"> </TextBlock>
+                            <TextBlock x:Name="reachedtarget" Foreground="red"></TextBlock>
+
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1">
+                    
+                </Border>
+            </Grid>
+
+            
+        </Border>
+
+        <!-- Sağ Panel -->
+        <Border Grid.Column="1" Background="Gray" Margin="5" >
+            <gmap:GMapControl Name="gmapControl"
+                      Margin="5"
+                      Loaded="gmapControl_Loaded" />
+        </Border>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="SihaControlSystem.UControls.ucTaskPlanning"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SihaControlSystem.UControls"
+             xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="530" d:DesignWidth="680">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sol Panel -->
+        <Border Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0">
+                    <Grid>
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Görev Planlama" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
+                            <Button Name="btnTaskPlanAdd" Content="Görev Planı Ekle" Margin="0,0,0,20" Click="btnTaskPlanAdd_Click" Style="{DynamicResource ucButtons}"/>
+                            <Button Name="btnTaskPlanArrange" Content="Görev Planı Düzenle" Margin="0,0,0,20" Click="btnTaskPlanArrange_Click" Style="{DynamicResource ucButtons}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Sağ Panel -->
+        <Border Grid.Column="1" Background="Gray" Margin="5" >
+            <gmap:GMapControl Name="gmapControl"
+                  Margin="5"
+                  Loaded="gmapControl_Loaded" />
+        </Border>
+
+    </Grid>
+</UserControl>
