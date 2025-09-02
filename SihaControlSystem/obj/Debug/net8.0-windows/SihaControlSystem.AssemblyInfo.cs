@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SihaControlSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d6eef2dafb3a320b22bf9c9fa6e2f24a178a985")]
 [assembly: System.Reflection.AssemblyProductAttribute("SihaControlSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SihaControlSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
